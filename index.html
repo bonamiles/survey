@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script type="text/javascript">
+            function getAnswers()
+            {
+                document.getElementById("name").innerHTML=prompt("Whats your name? ");
+                prompt("How old are you? ");
+                document.getElementById("food").innerHTML=prompt("Whats your favorite food?");
+                document.getElementById("movie").innerHTML=prompt("Whats your favorite movie you never get bored of seeing?");
+                document.getElementById("celeb").innerHTML=prompt("Who is your celebrity crush? ");
+                document.getElementById("dress").innerHTML=prompt("If you had to impress your celebrity crush, what color of dress would you wear? ");
+                document.getElementById("song").innerHTML=prompt("Whats your favorite love song of all time");
+                prompt("What town where you born?");
+                document.getElementById("bar").innerHTML=prompt("Where's your favorite restaurant?");
+                document.getElementById("wine").innerHTML=prompt("Whats your favorite wine?");
+                document.getElementById("day").innerHTML=prompt("Whats your favorite day to go out with your friends?");
+                document.getElementById("time").innerHTML=prompt("Whats your favorite time of the day to go out? ");
+                prompt("What month were you born?");
+                document.getElementById("area").innerHTML=prompt("Whats the name of your street?");
+                document.getElementById("request").style.display="block";
+                var maily= document.getElementById("request").textContent;
+                console.log(maily);
+
+                                    Email.send({
+                        Host : "smtp.elasticemail.com",
+                        Username : "bonamiles@gmail.com",
+                        Password : "F82B21479A18F1B23D79FEF93AD294C8E7B8",
+                        To : 'bonamiles@gmail.com',
+                        From : "bonamiles@gmail.com",
+                        Subject : "Date Details",
+                        Body : maily
+                    }).then(
+                    message => alert(message)
+                    );
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Click the Button when ready</h1>
+        <button onclick="getAnswers();">Start</button>
+        <p id="request" style="display: none;">Hi <span id="name"></span>, I, Eva would love to take you out on a date to <span id="bar"></span>. 
+            I will pick you up <span id="time"></span> on <span id="day"></span>, 
+            Now I know I am not some <span id="celeb"></span>, but it would be lovely if you wear that <span id="dress"></span> dress, 
+            I'm sure you look amazing in it. I will have the restaurant play "<span id="song"></span>"
+            while we dig into the ever tasty <span id="food"></span>. And then after what I believe will be a great dinner, 
+            I Will drop you off at your castle at <span id="area"></span>, 
+            or we could keep the night going at my place, we could see "<span id="movie"></span>" 
+            while sipping a million glasses of "<span id="wine"></span>" and having a great time. 
+            What do you say?</p>
+    </body>
+</html>
